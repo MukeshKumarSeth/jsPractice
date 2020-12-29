@@ -1,0 +1,40 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <script>
+        //user promises when you are going to do something which is taking time in backand like file handling,downloading etc   
+
+        let promise = new Promise((resolve, reject) => {
+            let a = 1 + 5; //write here the work you want to perfom like any query etc. as writen in example
+            if (a == 6) { //will run when condition get true
+                resolve('Success');
+            } else { //will run when condition get false
+                reject('Failed');
+            }
+        });
+
+        promise.then((message) => {
+            document.write('Then block is running because it gets resolved=>' + message);
+        }).catch((message) => {
+            document.write('Catch block is running because it gets resect=>' + message);
+        });
+
+        //this ixample run a query which will execute query comming in params an retur error or results 
+        // function execQuery(query, data) {
+        //     return new Promise((resolve, reject) => {
+        //         conn.query(query, data, (error, results) => {
+        //             if (error) {
+        //                 reject(error);
+        //             };
+        //             resolve(results);
+        //         });
+        //     })
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<html>
+
+<body>
+
+	<script>
+		// function restshow(s, ...a) {
+		// 	document.write(abc+',');
+		// 	document.write(a);
+		// 	console.log(s);
+		// 	console.log(...a);
+		// }
+		// restshow(12, 34, 35);
+
+		// (function show(s, a) { //immediatly invoked function
+		// 	document.write(abc+',');
+		// 	document.write('mukesh');
+		// 	console.log(s);
+		// 	console.log(arguments);
+
+		// })();
+		// show(12,34,35);
+
+		// (function show(a, b) { //immediatly invoked function with parameter
+		// 	document.write(abc+',');
+		// 	document.write(a + b);
+		// 	console.log(s);
+		// 	console.log(arguments);
+
+		// })(12, 12);
+
+		// document.write(abc);
+		// var abc;
+	</script>
+	<textarea id="code"></textarea>
+
+	<iframe id="output"></iframe>
+
+	<button id="submit-b" onclick="update()">run</button>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script>
+		function update() {
+			var frame = $('#output').get(0);
+			var frameDoc = frame.contentDocument || frame.contentWindow.document;
+			var w = document.getElementById("code").value;
+			document.getElementById('output').contentWindow.document.write(w);
+		}
+	</script>
+</body>
+
+</html>
