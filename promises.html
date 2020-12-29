@@ -18,22 +18,40 @@
         });
 
         promise.then((message) => {
-            document.write('Then block is running because it gets resolved=>' + message);
+            //   document.write('Then block is running because it gets resolved=>' + message);
         }).catch((message) => {
-            document.write('Catch block is running because it gets resect=>' + message);
+            // document.write('Catch block is running because it gets resect=>' + message);
         });
 
-        //this ixample run a query which will execute query comming in params an retur error or results 
-        // function execQuery(query, data) {
-        //     return new Promise((resolve, reject) => {
-        //         conn.query(query, data, (error, results) => {
-        //             if (error) {
-        //                 reject(error);
-        //             };
-        //             resolve(results);
-        //         });
-        //     })
-        // }
+        //Example for using promises insted of using callback (this is the same code which is done by callback on callback.html)
+
+        const stuLeft = false;
+        const stuReading = false;
+
+        function callbackFunctionTutorial() {
+            return new Promise((resolve, reject) => {
+                if (stuLeft) {
+                    reject({
+                        name: 'Student Left',
+                        message: 'Student left this tutorial,he can not understand what is callback'
+                    });
+                } else if (stuReading) {
+                    reject({
+                        name: 'Student Reading',
+                        message: 'Student is reading this tutorial,he will understand what is callback'
+                    });
+                } else {
+                    resolve('Congratulation you have completed the callback');
+                }
+            });
+        }
+
+        //passing two function as parameter into a function
+        callbackFunctionTutorial().then((message) => {
+            document.write('Success=> ' + message);
+        }).catch((error) => {
+            document.write('Error name => ' + error.name + '<br>' + 'Error message => ' + error.message);
+        });
     </script>
 </body>
 

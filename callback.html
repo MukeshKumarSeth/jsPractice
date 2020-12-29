@@ -1,0 +1,40 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        //when we pass a function to a function as a prameter is colled collback 
+        const stuLeft = false;
+        const stuReading = true;
+
+        function callbackFunctionTutorial(callback, errorCallback) {
+            if (stuLeft) {
+                errorCallback({
+                    name: 'Student Left',
+                    message: 'Student left this tutorial,he can not understand what is callback'
+                });
+            } else if (stuReading) {
+                errorCallback({
+                    name: 'Student Reading',
+                    message: 'Student is reading this tutorial,he will understand what is callback'
+                });
+            } else {
+                callback('Congratulation you have completed the callback');
+            }
+        }
+        //passing two function as parameter into a function 
+        callbackFunctionTutorial((message) => {
+            document.write('Success=> ' + message);
+        }, (error) => {
+            document.write('Error name => ' + error.name + '<br>' + 'Error message => ' + error.message);
+        });
+    </script>
+
+    <!--NOTE = > these all code can be done by promises insted of callback 
+    You can find these code by promises in promises.html file
+    -->
+</body>
+
+</html>

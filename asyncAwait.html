@@ -1,0 +1,55 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        //this compleate what is async await and why we should user it with example
+
+        /**************************THIS CODE IS SHOWING .THEN LADDER  MEANS NESTING OF .THEN *****************************/
+        function orderBurger(burgerName) {
+            return new Promise((resolve, reject) => {
+                document.write('You Orderd for ' + burgerName + ' Burger<br>');
+                if (burgerName == 'cheese') {
+                    resolve(`Order confirmed for ${burgerName} Burger`);
+                } else if (burgerName == 'egg') {
+                    resolve(`Order confirmed for ${burgerName} Burger`);
+                } else {
+                    reject(`Oops! we don't have ${burgerName} Sorryyy..`);
+                }
+            });
+        }
+
+        function addOn(burgerName) {
+            return new Promise((resolve, reject) => {
+                resolve(`Congratulation you get an add on with this Order<br> ${burgerName}`);
+            });
+        }
+
+        // orderBurger('cheese').then((response) => { //uncomment when want to user .then nesting
+        //     return addOn(response);
+        // }).then(addonResponse => {
+        //     document.write(addonResponse);
+        // }).catch(error => {
+        //     document.write(error);
+        // });
+
+
+        /*******************IF WE DON'T WANT TO USE .THEN NESTING SO WE CAN USE ASYNC AWAIT WITH TRY CATCH***********************/
+        /*******NOW WE ARE WRIING SAME CODE WITH ASYNC AWAIT *******/
+        /****Just you need to crete a function with async keyword and wrap you all function with this by using await keyword*****/
+        async function collAllfunction() {
+            try {
+                var firstCall = await orderBurger('cheesedd');
+                var secondCall = await addOn(firstCall);
+                document.write(secondCall);
+            } catch (error) {
+                document.write(error);
+            }
+        }
+        collAllfunction();
+    </script>
+</body>
+
+</html>
